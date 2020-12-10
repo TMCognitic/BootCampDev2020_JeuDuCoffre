@@ -1,0 +1,12 @@
+﻿<Application x:Class="JeuDuCoffre.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:JeuDuCoffre.ViewModels"
+             xmlns:conv="clr-namespace:JeuDuCoffre.Converters"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <vm:MainViewModel x:Key="Main" />
+        <conv:Int32ToSolidColorBrushConverter x:Key="Int32ToSolidColorBrush" />
+        <conv:Int32ToResultConverter x:Key="Int32ToResult" />
+    </Application.Resources>
+</Application>

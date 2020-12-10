@@ -1,0 +1,98 @@
+﻿<Window x:Class="JeuDuCoffre.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys="clr-namespace:Microsoft.CSharp;assembly=System"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" DataContext="{StaticResource Main}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Button Grid.ColumnSpan="4" Content="New Game" FontSize="20" Command="{Binding RestartCommand}" />
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Viewbox Margin="15">
+                <TextBlock>
+                    <TextBlock.Text>
+                        <MultiBinding Converter="{StaticResource Int32ToResult}">
+                            <Binding Path="Buttons[0].Value" />
+                            <Binding Path="Code[0]" />
+                        </MultiBinding>                                
+                    </TextBlock.Text>
+                </TextBlock>                        
+            </Viewbox>
+            <Border Grid.Row="1" Background="{Binding Buttons[0].Value, Converter={StaticResource Int32ToSolidColorBrush}}" />
+            <Button Grid.Row="2" Command="{Binding Buttons[0].ChangeValueCommand}" />
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Viewbox Margin="15">
+                <TextBlock>
+                    <TextBlock.Text>
+                        <MultiBinding Converter="{StaticResource Int32ToResult}">
+                            <Binding Path="Buttons[1].Value" />
+                            <Binding Path="Code[1]" />
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+            </Viewbox>
+            <Border Grid.Row="1" Background="{Binding Buttons[1].Value, Converter={StaticResource Int32ToSolidColorBrush}}" />
+            <Button Grid.Row="2" Command="{Binding Buttons[1].ChangeValueCommand}" />
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Viewbox Margin="15">
+                <TextBlock>
+                    <TextBlock.Text>
+                        <MultiBinding Converter="{StaticResource Int32ToResult}">
+                            <Binding Path="Buttons[2].Value" />
+                            <Binding Path="Code[2]" />
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+            </Viewbox>
+            <Border Grid.Row="1" Background="{Binding Buttons[2].Value, Converter={StaticResource Int32ToSolidColorBrush}}" />
+            <Button Grid.Row="2" Command="{Binding Buttons[2].ChangeValueCommand}" />
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="3">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Viewbox Margin="15">
+                <TextBlock>
+                    <TextBlock.Text>
+                        <MultiBinding Converter="{StaticResource Int32ToResult}">
+                            <Binding Path="Buttons[3].Value" />
+                            <Binding Path="Code[3]" />
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+            </Viewbox>
+            <Border Grid.Row="1" Background="{Binding Buttons[3].Value, Converter={StaticResource Int32ToSolidColorBrush}}" />
+            <Button Grid.Row="2" Command="{Binding Buttons[3].ChangeValueCommand}" />
+        </Grid>
+    </Grid>
+</Window>
